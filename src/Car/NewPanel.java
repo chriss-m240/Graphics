@@ -56,54 +56,59 @@ class NewPanel extends JPanel implements ActionListener, MouseListener{
        Image fondo = loadImage("fondo.png");
        Image cat = loadImage("cats.GIF");
        g.drawImage(fondo,0,0,null);
-       g.drawImage(cat, xCar, 50, xCar+132,50+80,132*secuencia+132,0,secuencia+132,80,null);
+       g.drawImage(cat, xCar + 50, 50, xCar+50+132,50+80,secuencia*132,0,(secuencia*132)+132,80,this);
        
        
        
        /*
        for (int i = 0; i < 1000; i+=20) {
                */
-           g.setColor(Color.BLACK);
-            
-            xCar = 50+i;
-            yCar = 400+j;
-            
-            if (xCar >= 700 || xCar <=0) {
-                changeX = true;
-                xSpeed*= (-1);
-            }
-           
-            
-          
-          
-            
-            int x[] = {75+i,125+i,175+i,225+i};
-            int y[] = {350,300,300,350};
-            g.setColor(Up);
-            g.fillPolygon(x, y, x.length);
-            g.setColor(Chasis);
-            g.fillRect(50+i, 350, 200, 50);
-            g.setColor(Color.BLACK);
-            g.fillOval(75+i, 399, 50, 50);
-            g.fillOval(175+i, 399, 50, 50);     
+//           g.setColor(Color.BLACK);
+//            
+//            xCar = 50+i;
+//            yCar = 400+j;
+//            
+//            if (xCar >= 700 || xCar <=0) {
+//                changeX = true;
+//                xSpeed*= (-1);
+//            }
+//           
+//            
+//          
+//          
+//            
+//            int x[] = {75+i,125+i,175+i,225+i};
+//            int y[] = {350,300,300,350};
+//            g.setColor(Up);
+//            g.fillPolygon(x, y, x.length);
+//            g.setColor(Chasis);
+//            g.fillRect(50+i, 350, 200, 50);
+//            g.setColor(Color.BLACK);
+//            g.fillOval(75+i, 399, 50, 50);
+//            g.fillOval(175+i, 399, 50, 50);     
     
    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        secuencia +=1%6;
-     if (changeX) {
-            i += xSpeed;
-        } else {
-            i+= xSpeed;
+        secuencia +=1;
+        if (secuencia == 6) {
+            secuencia = 0;
         }
-        if (changeY) {
-            j-=ySpeed;
-        } else {
-            j+=ySpeed;
-        }
-        this.checkCollisions();
-        repaint(); 
+//     if (changeX) {
+//            i += xSpeed;
+//        } else {
+//            i+= xSpeed;
+//        }
+//        if (changeY) {
+//            j-=ySpeed;
+//        } else {
+//            j+=ySpeed;
+//        }
+//        this.checkCollisions();
+//        repaint();
+        xCar += xSpeed;
+        repaint();
     }
     
     public Rectangle getBounds() {
